@@ -1,0 +1,1 @@
+insert into t_user(`email`,`nickname`,`password`,`username`) select `email`,`nickname`,`password`,`username` from t_user
