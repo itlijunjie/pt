@@ -148,7 +148,7 @@
 			href="user/logout" id="loginOut">安全退出</a>
 		</span> <span style="padding-left: 10px; font-size: 16px;"> <img
 			src="<%=ConstUtil.SERVER_RESOURCES%>/images/blocks.gif" width="20"
-			height="20" align="absmiddle" />华动视点测试接口管理项目
+			height="20" align="absmiddle" />测试接口管理项目
 		</span>
 	</div>
 	<div region="south" split="true"
