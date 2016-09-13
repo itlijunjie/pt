@@ -33,6 +33,10 @@
 				"menuname" : "接口管理",
 				"icon" : "icon-add",
 				"url" : "productif/productifs?pageNo=1"
+			}, {
+				"menuname" : "图片上传",
+				"icon" : "icon-add",
+				"url" : "upload/index"
 			} /*,
 												{"menuname":"用户管理","icon":"icon-users","url":"demo.html"},icon-nav
 												{"menuname":"角色管理","icon":"icon-role","url":"demo.html"},

@@ -32,7 +32,7 @@ public class loginFilter extends HttpServlet implements Filter {
 		String url = request.getRequestURI();
 		
 		//静态资源不做处理 和 手机调用不审核
-		if (url.indexOf("resources")>0||url.indexOf("call")>0) {
+		if (url.indexOf("resources")>0||url.indexOf("call")>0||url.indexOf("upload")>0) {
 			arg2.doFilter(arg0, arg1);
 			return;
 		}
