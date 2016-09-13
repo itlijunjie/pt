@@ -27,9 +27,8 @@ public class UploadController {
 		System.out.println("开始");
 		String path = request.getSession().getServletContext().getRealPath("/")
 				+ "upload/";
-//		String fileName = file.getOriginalFilename();
-		String fileName = new Date().getTime() + file.getOriginalFilename();;
-		System.out.println("path======" + path);
+		String fileName = new Date().getTime() + file.getOriginalFilename();
+		System.out.println("path======" + path + fileName);
 		File targetFile = new File(path, fileName);
 		if (!targetFile.exists()) {
 			targetFile.mkdirs();
