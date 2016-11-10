@@ -34,7 +34,7 @@ public class JsonConreoller {
 	}
 	
 	@RequestMapping(value="/json/{productname}/{parameter}",method=RequestMethod.GET)
-	public void delete(@PathVariable String productname,@PathVariable String parameter,HttpServletResponse response,HttpServletRequest request){
+	public void delete(@PathVariable String productname, @PathVariable String parameter, HttpServletResponse response, HttpServletRequest request){
 		String url = request.getRequestURI();
 		String[] l = url.split("/");
 		parameter = l[l.length-1];

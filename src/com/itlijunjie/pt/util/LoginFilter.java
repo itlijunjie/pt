@@ -15,12 +15,12 @@ import javax.servlet.http.HttpSession;
 
 import com.itlijunjie.pt.vo.User;
 
-public class loginFilter extends HttpServlet implements Filter {
+public class LoginFilter extends HttpServlet implements Filter {
 
 	private static final long serialVersionUID = -8527942053687062625L;
 
 	public void destroy() {
-		
+
 	}
 
 	public void doFilter(ServletRequest arg0, ServletResponse arg1,
@@ -30,13 +30,13 @@ public class loginFilter extends HttpServlet implements Filter {
 		HttpSession session = request.getSession(true);
 		User usercode = (User) session.getAttribute("loginUser");
 		String url = request.getRequestURI();
-		
+
 		//静态资源不做处理 和 手机调用不审核
 		if (url.indexOf("resources")>0||url.indexOf("call")>0||url.indexOf("upload")>0) {
 			arg2.doFilter(arg0, arg1);
 			return;
 		}
-		
+
 		//查看session看看是否登录了
 		if (usercode == null) {
 			/**
@@ -57,7 +57,7 @@ public class loginFilter extends HttpServlet implements Filter {
 	}
 
 	public void init(FilterConfig filterConfig) throws ServletException {
-		
+
 	}
 
 }
