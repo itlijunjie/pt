@@ -1,4 +1,4 @@
-<%@page import="com.slideviewsoft.pt.util.ConstUtil"%>
+<%@page import="com.itlijunjie.pt.util.ConstUtil"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -33,6 +33,10 @@
 				"menuname" : "接口管理",
 				"icon" : "icon-add",
 				"url" : "productif/productifs?pageNo=1"
+			}, {
+				"menuname" : "图片上传",
+				"icon" : "icon-add",
+				"url" : "upload/index"
 			} /*,
 												{"menuname":"用户管理","icon":"icon-users","url":"demo.html"},icon-nav
 												{"menuname":"角色管理","icon":"icon-role","url":"demo.html"},
@@ -153,7 +157,7 @@
 	</div>
 	<div region="south" split="true"
 		style="height: 30px; background: #D2E0F2;">
-		<div class="footer">By slideview</div>
+		<div class="footer">By Li Junjie</div>
 	</div>
 	<div region="west" split="true" title="导航菜单" style="width: 180px;"
 		id="west">

@@ -12,7 +12,7 @@
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 	<context:annotation-config/>
-	<context:component-scan base-package="com.slideviewsoft.pt"/>
+	<context:component-scan base-package="com.itlijunjie.pt"/>
 	<!-- 引入jdbc配置文件 -->
 	<context:property-placeholder location="classpath:jdbc.properties"/>
 	<!-- 自己去查询使用JNDI数据源的方式 -->
@@ -38,9 +38,9 @@
 		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
 	-->
 		<property name="dataSource" ref="dataSource"/>
-		<!--自动去com.slideviewsoft.pt.vo包中找hbm或者配置了annotation的class文件 -->
+		<!--自动去com.itlijunjie.pt.vo包中找hbm或者配置了annotation的class文件 -->
 		<property name="packagesToScan">
-			<value>com.slideviewsoft.pt.vo</value>
+			<value>com.itlijunjie.pt.vo</value>
 		</property>
 		
 		<!-- hibernateProperties 的参数配置 -->
@@ -65,7 +65,7 @@
 	<aop:config>
 	    <!-- 切点 -->
 	    <aop:pointcut id="myMethod" 
-	            expression="execution(* com.slideviewsoft.pt.services.*.*(..))"/>
+	            expression="execution(* com.itlijunjie.pt.services.*.*(..))"/>
 	    <!-- 切面 -->
 	    <aop:advisor advice-ref="txAdvice" pointcut-ref="myMethod"/>
 	</aop:config>

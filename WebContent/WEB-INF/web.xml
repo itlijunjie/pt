@@ -28,7 +28,7 @@
 	
 	<filter>
 		<filter-name>loginFilter</filter-name>
-		<filter-class>com.slideviewsoft.pt.util.loginFilter</filter-class>
+		<filter-class>com.itlijunjie.pt.util.loginFilter</filter-class>
 	</filter>
 	
 	<filter-mapping>
