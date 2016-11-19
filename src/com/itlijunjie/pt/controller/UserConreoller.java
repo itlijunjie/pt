@@ -126,14 +126,17 @@ public class UserConreoller {
 	
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public String login(String checkCode, String username,String password,Model model) {
+		String res;
 		if (!checkCode.equals(model.asMap().get("checkCode"))) {
 			model.addAttribute("error","验证码错误");
-			return "user/login";
+			res = "user/login";
+		} else {
+			User u = userService.login(username, password);
+			//放到session中
+			model.addAttribute("loginUser",u);
+			res = "redirect:/index.jsp";
 		}
-		User u = userService.login(username, password);
-		//放到session中
-		model.addAttribute("loginUser",u);
-		return "redirect:/index.jsp";
+		return res;
 	}
 	
 	@RequestMapping(value="/logout")
@@ -143,7 +146,8 @@ public class UserConreoller {
        // session.removeAttribute(SysConstants.USER_LOGIN_NAME_SESSIONKEY);         
         //model.remove(SysConstants.USER_LOGIN_ID_SESSIONKEY);
         //model.remove(SysConstants.USER_LOGIN_ID_SESSIONKEY);
-        model.remove("loginUser");
+//        model.remove("loginUser");
+		model.clear();
 		return "redirect:/user/login";
 	}
 	
