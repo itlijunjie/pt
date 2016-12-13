@@ -8,26 +8,25 @@
     <link rel="stylesheet" type="text/css"
           href="<%=ConstUtil.SERVER_RESOURCES%>/css/default.css"/>
     <link rel="stylesheet" type="text/css"
-          href="<%=ConstUtil.SERVER_RESOURCES%>/js/themes/default/easyui.css"/>
+          href="<%=ConstUtil.SERVER_RESOURCES%>/jquery-easyui-1.5/themes/default/easyui.css"/>
     <link rel="stylesheet" type="text/css"
-          href="<%=ConstUtil.SERVER_RESOURCES%>/js/themes/icon.css"/>
+          href="<%=ConstUtil.SERVER_RESOURCES%>/jquery-easyui-1.5/themes/icon.css"/>
     <script type="text/javascript"
-            src="<%=ConstUtil.SERVER_RESOURCES%>/js/jquery-1.4.2.min.js"></script>
+            src="<%=ConstUtil.SERVER_RESOURCES%>/jquery-easyui-1.5/jquery.min.js"></script>
     <script type="text/javascript"
-            src="<%=ConstUtil.SERVER_RESOURCES%>/js/jQuery.easyui.js"></script>
+            src='<%=ConstUtil.SERVER_RESOURCES%>/js/outlook2.js'></script>
     <script type="text/javascript"
-            src='<%=ConstUtil.SERVER_RESOURCES%>/js/outlook2.js'>
+            src="<%=ConstUtil.SERVER_RESOURCES%>/jquery-easyui-1.5/jquery.easyui.min.js"></script>
 
-    </script>
     <script type="text/javascript">
         var _menus = {
             "menus": [{
                 "menuid": "1",
                 "icon": "icon-sys",
-                "menuname": "系統管理",
+                "menuname": "系统管理",
                 "menus": [{
-                    "menuname": "用戶管理",
-                    "icon": "icon-users",
+                    "menuname": "用户管理",
+                    "icon": "icon-man",
                     "url": "user/users?pageNo=1"
                 }, {
                     "menuname": "接口管理",
@@ -160,7 +159,7 @@
 <div region="south" split="true" style="height: 30px; background: #D2E0F2;">
     <div class="footer">By Li Junjie</div>
 </div>
-<div region="west" split="true" title="导航菜单" style="width: 180px;" id="west">
+<div region="west" split="true" data-options="iconCls:'icon-more'" title="导航菜单" style="width: 180px;" id="west">
     <div class="easyui-accordion" fit="true" border="false">
         <!--  导航内容 -->
     </div>
