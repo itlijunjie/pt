@@ -36,7 +36,7 @@
                 }, {
                     "menuname": "图片管理",
                     "icon": "icon-add",
-                    "url": "reource/add"
+                    "url": "reource/reources"
                 } /*,
                  {"menuname":"用户管理","icon":"icon-users","url":"demo.html"},icon-nav
                  {"menuname":"角色管理","icon":"icon-role","url":"demo.html"},

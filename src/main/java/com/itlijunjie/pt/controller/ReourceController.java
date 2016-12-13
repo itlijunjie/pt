@@ -1,11 +1,19 @@
 package com.itlijunjie.pt.controller;
 
+import com.itlijunjie.pt.services.IReourceService;
+import com.itlijunjie.pt.util.ConstUtil;
+import com.itlijunjie.pt.util.PageInfo;
+import com.itlijunjie.pt.vo.Reource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.Date;
@@ -18,13 +26,32 @@ import java.util.Date;
 @RequestMapping("/reource")
 public class ReourceController {
 
+    private PageInfo pageInfo = null;
+
+    private IReourceService reourceService;
+
+    public IReourceService getReourceService() {
+        return reourceService;
+    }
+
+    @Resource
+    public void setReourceService(IReourceService reourceService) {
+        this.reourceService = reourceService;
+    }
+
     /**
      * 查看所有资源
-     * @param request 资源链接
+     * @param pageNo 页码
+     * @param model model
      * @return 返回查看资源界面
      */
-    @RequestMapping("/reources")
-    public String index(HttpServletRequest request) {
+    @RequestMapping(value = "/reources", method = RequestMethod.GET)
+    public String index(@RequestParam(value = "pageNo", required = false) Integer pageNo, Model model) {
+        if (pageNo == null) {
+            pageNo = 1;
+        }
+        pageInfo = reourceService.pageList(null, pageNo, 20);
+        model.addAttribute("reources", pageInfo);
         return "reource/list";
     }
 
@@ -36,11 +63,13 @@ public class ReourceController {
     @RequestMapping("/upload")
     public String upload(
             @RequestParam(value = "file", required = false) MultipartFile file,
+            @RequestParam(value = "description", required = false) String description,
             HttpServletRequest request, ModelMap model) {
 
         System.out.println("开始");
-        String path = request.getSession().getServletContext().getRealPath("/")
-                + "upload/";
+//        String path = request.getSession().getServletContext().getRealPath("/")
+//                + "upload/";
+        String path = ConstUtil.UPLOAD_PATH;
         String fileName = new Date().getTime() + file.getOriginalFilename();
         System.out.println("path======" + path + fileName);
         File targetFile = new File(path, fileName);
@@ -48,6 +77,10 @@ public class ReourceController {
             targetFile.mkdirs();
         }
 
+        Reource reource = new Reource();
+        reource.setName(fileName);
+        reource.setDescription(description);
+        reourceService.add(reource);
         // 保存
         try {
             file.transferTo(targetFile);
@@ -57,6 +90,11 @@ public class ReourceController {
         model.addAttribute("fileUrl", request.getContextPath() + "/upload/"
                 + fileName);
 
-        return "upload/result";
+        return "reource/list";
+    }
+    @RequestMapping(value = "{id}/delete", method = RequestMethod.GET)
+    public String delete(@PathVariable int id) {
+        reourceService.delete(id);
+        return "redirect:/reource/reources?pageNo=  " + pageInfo.getCurPage();
     }
 }
