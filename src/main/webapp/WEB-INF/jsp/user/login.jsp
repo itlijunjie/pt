@@ -7,7 +7,7 @@
 <head>
     <title>后台管理登录界面</title>
     <link href="<%=ConstUtil.SERVER_RESOURCES %>/css/alogin.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="<%=ConstUtil.SERVER_RESOURCES %>/js/jQuery3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=ConstUtil.SERVER_RESOURCES %>/jQuery3.1.1/jquery.min.js"></script>
     <script type="text/javascript">
         function checkcode(img) {
             img.src = "drawCheckcode?" + Math.random();

@@ -40,7 +40,7 @@
             <td>${pi.ifid }</td>
             <td><a href="${pi.ifid }">${pi.ifname }</a></td>
             <td>${pi.ifdescription }</td>
-            <td><textarea rows="5" style="width:99%">${pi.ifresule }</textarea></td>
+            <td><textarea disabled="disabled" rows="5" style="width:99%">${pi.ifresule }</textarea></td>
             <td>${pi.ifparameter }</td>
             <td>${pi.productname }</td>
             <td>
