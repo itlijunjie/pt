@@ -20,12 +20,17 @@ public final class ConstUtil {
             + SERVER_NAME;
 
     public static final String SERVER_RESOURCES_NAME =  "/resources";
-
     public static final String SERVER_RESOURCES = SERVER_PATH + SERVER_RESOURCES_NAME;
 
     public static final String JSON_TEST_PATH_NAME = "/call/json";
-
     public static final String JSON_TEST_PATH = SERVER_PATH + JSON_TEST_PATH_NAME;
+
+    public static final String SDEMO_PATH_NAME = "/sdemo";
+    public static final String SDEMO_PATH = SERVER_PATH + SDEMO_PATH_NAME;
+
+    public static final String DDEMO_PATH_NAME = "/ddemo";
+    public static final String DDEMO_PATH = SERVER_PATH + DDEMO_PATH_NAME;
+
 
     private static String getIP() {
         String res = "";
