@@ -23,7 +23,7 @@ public class LoginFilter extends HttpServlet implements Filter {
         HttpServletRequest request = (HttpServletRequest) arg0;
         HttpSession session = request.getSession(true);
         User usercode = (User) session.getAttribute("loginUser");
-        String url = request. getRequestURI();
+        String url = request.getRequestURI();
 
         //静态资源不做处理 和 接口调用不审核
         if (url.startsWith(ConstUtil.SERVER_NAME + ConstUtil.SERVER_RESOURCES_NAME) ||

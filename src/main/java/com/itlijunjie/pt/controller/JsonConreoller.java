@@ -34,7 +34,7 @@ public class JsonConreoller {
 	}
 	
 	@RequestMapping(value="/json/{productname}/{parameter}",method=RequestMethod.GET)
-	public void delete(@PathVariable String productname, @PathVariable String parameter, HttpServletResponse response, HttpServletRequest request){
+	public void getJSON(@PathVariable String productname, @PathVariable String parameter, HttpServletResponse response, HttpServletRequest request){
 		String url = request.getRequestURI();
 		String[] l = url.split("/");
 		parameter = l[l.length-1];
@@ -48,7 +48,7 @@ public class JsonConreoller {
 		}
 		ProductInterface p = productInterfaceService.getProductInterface(productname, parameter);
 		response.setContentType("text/plain");
-    	response.setHeader("pragma", "no-cache");  
+    	response.setHeader("pragma", "no-cache");
     	response.setHeader("cache-control", "no-cache");
     	response.setCharacterEncoding("utf-8");
         PrintWriter out=null;

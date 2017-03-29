@@ -16,10 +16,13 @@ import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user")
@@ -98,6 +101,26 @@ public class UserConreoller {
         return "user/update";
     }
 
+    @RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> changePassword(String newPassword, String rePassword, ModelMap model, HttpServletResponse response) {
+        Map<String, Object> ret = new HashMap<String, Object>();
+        User user = (User) model.get("loginUser");
+        String status = "1";
+        if (user != null) {
+            if (newPassword != null && rePassword != null){
+                if (newPassword.equals(rePassword)) {
+                    user = userService.load(user.getId());
+                    user.setPassword(StringUtil.MD5(rePassword));
+                    userService.update(user);
+                    status = "0";
+                }
+            }
+        }
+        ret.put("status",status);
+        return ret;
+    }
+
     @RequestMapping(value = "{id}/update", method = RequestMethod.POST)
     public String update(@PathVariable int id, @Valid User user, BindingResult result) {
         user.setId(id);
@@ -134,8 +157,10 @@ public class UserConreoller {
     }
 
     @RequestMapping(value = "/logout")
-    public String logout(ModelMap model) {
+    public String logout(ModelMap model, HttpServletRequest request) {
         model.clear();
+        HttpSession session = request.getSession(true);
+        session.removeAttribute("loginUser");
         return "redirect:/user/login";
     }
 

@@ -91,7 +91,7 @@
                 return false;
             }
             if ($rePass.val() == '') {
-                msgShow('系统提示', '请在一次输入密码！', 'warning');
+                msgShow('系统提示', '请再一次输入密码！', 'warning');
                 return false;
             }
 
@@ -100,17 +100,21 @@
                 return false;
             }
 
-            $.post('/ajax/editpassword.ashx?newpass=' + $newpass.val(), function (msg) {
-                msgShow('系统提示', '恭喜，密码修改成功！<br>您的新密码为：' + msg, 'info');
+            $.post('user/changePassword', {newPassword: $newpass.val(), rePassword: $rePass.val()},function (data) {
+                close();
+                var message = '更新失败';
+                var msgType = 'error';
+                if (data.status == 0) {
+                    message = '恭喜，密码修改成功！';
+                    msgType = 'info';
+                }
+                msgShow('系统提示', message, msgType);
                 $newpass.val('');
                 $rePass.val('');
-                close();
-            })
-
+            });
         }
 
         $(function () {
-
             openPwd();
             //
             $('#editpass').click(function () {
@@ -119,13 +123,12 @@
 
             $('#btnEp').click(function () {
                 serverLogin();
-            })
+            });
 
             $('#loginOut').click(function () {
                 $.messager.confirm('系统提示', '您确定要退出本次登录吗?', function (r) {
-
                     if (r) {
-                        location.href = '/ajax/loginout.ashx';
+                        location.href = 'user/logout';
                     }
                 });
             })
@@ -147,7 +150,7 @@
         <span style="line-height: 35px">
             欢迎${loginUser.nickname }
             <a href="#" id="editpass">修改密码</a>
-            <a href="user/logout" id="loginOut">安全退出</a>
+            <a href="#" id="loginOut">安全退出</a>
         </span>
     </span>
         <span style="float: left; padding-left: 10px; font-size: 16px; height: 100%; line-height: 35px;">
