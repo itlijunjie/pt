@@ -60,9 +60,9 @@ public class ReourceController {
         return "reource/add";
     }
 
-    @RequestMapping("/upload")
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String upload(
-            @RequestParam(value = "file", required = false) MultipartFile file,
+            @RequestParam(value = "file") MultipartFile file,
             @RequestParam(value = "description", required = false) String description,
             HttpServletRequest request, ModelMap model) {
 

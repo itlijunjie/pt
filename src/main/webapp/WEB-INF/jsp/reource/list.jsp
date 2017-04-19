@@ -63,5 +63,9 @@
 当前第${reources.curPage }页
 共<span>${reources.pageTotalNum }</span>页
 跳转到<input id="tiaozhuanye" type="text"/>页<input type="button" onclick="tiaozhuan();" value="确定"/>
+<br/><br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;使用说明：如服务器部署的IP地址是<%=ConstUtil.IP %><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;资源描述：对该资源的描述，在添加的时候不是必填，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;上传url：<%=ConstUtil.SERVER_RESOURCES %>/upload(为固定格式),资源名称为file<br/>
 </body>
 </html>
