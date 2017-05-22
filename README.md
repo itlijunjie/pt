@@ -13,5 +13,5 @@
 QQ：470058952</br>
 我的微信：</br>
 <img src="https://raw.githubusercontent.com/itlijunjie/image/master/微信.png" width="200px">
-##License
-pt is under [WTFPL](http://www.wtfpl.net/). You can do what the fuck you want with pt. See [LICENSE](LICENSE) file for more info.
+## License
+    pt is under [WTFPL](http://www.wtfpl.net/). You can do what the fuck you want with pt. See [LICENSE](LICENSE) file for more info.
