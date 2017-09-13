@@ -25,7 +25,9 @@ public final class ConstUtil {
     public static final String UPLOAD_RESOURCE_NAME = "/reource/upload";
 
     public static final String JSON_TEST_PATH_NAME = "/call/json";
+    public static final String PROTOBUF_TEST_PATH_NAME = "/call/protobuf";
     public static final String JSON_TEST_PATH = SERVER_PATH + JSON_TEST_PATH_NAME;
+    public static final String PROTOBUF_TEST_PATH = SERVER_PATH + PROTOBUF_TEST_PATH_NAME;
 
     public static final String SDEMO_PATH_NAME = "/sdemo";
     public static final String SDEMO_PATH = SERVER_PATH + SDEMO_PATH_NAME;
