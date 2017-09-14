@@ -26,6 +26,8 @@ public final class ConstUtil {
 
     public static final String JSON_TEST_PATH_NAME = "/call/json";
     public static final String PROTOBUF_TEST_PATH_NAME = "/call/protobuf";
+    public static final String FLATBUFFERS_TEST_PATH_NAME = "/call/flatbuffers";
+
     public static final String JSON_TEST_PATH = SERVER_PATH + JSON_TEST_PATH_NAME;
     public static final String PROTOBUF_TEST_PATH = SERVER_PATH + PROTOBUF_TEST_PATH_NAME;
 

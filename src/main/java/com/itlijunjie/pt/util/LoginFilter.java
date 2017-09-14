@@ -29,6 +29,7 @@ public class LoginFilter extends HttpServlet implements Filter {
         if (url.startsWith(ConstUtil.SERVER_NAME + ConstUtil.SERVER_RESOURCES_NAME) ||
                 url.startsWith(ConstUtil.SERVER_NAME + ConstUtil.JSON_TEST_PATH_NAME) ||
                 url.startsWith(ConstUtil.SERVER_NAME + ConstUtil.PROTOBUF_TEST_PATH_NAME) ||
+                url.startsWith(ConstUtil.SERVER_NAME + ConstUtil.FLATBUFFERS_TEST_PATH_NAME) ||
                 url.startsWith(ConstUtil.SERVER_NAME + ConstUtil.SDEMO_PATH_NAME) ||
                 url.startsWith(ConstUtil.SERVER_NAME + ConstUtil.DDEMO_PATH_NAME) ||
                 url.startsWith(ConstUtil.SERVER_NAME + ConstUtil.UPLOAD_RESOURCE_NAME)
